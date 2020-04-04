@@ -6,7 +6,11 @@
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <h1>Play Rock, Paper, Scissors on the console.</h1>
+    <p>Press F12 or Fn+F12 depending upon your keyboard and go to console.</p>
+    <p>Refresh the browser if you want to play.</p>
+    <p>Type either rock, paper or scissors for five rounds and find the winner against the computer.</p>
+    <p>Have fun!</p>
 </body>
 
 <script>
@@ -31,20 +35,23 @@
             playerScore++;
             return "Player Wins";
         }
-        else{
-            return "Player invalid input";
-        }
     }
-    for(let i=0; i<5; i++){
+    for(let i=1; i<=5; i++){
     let computerSelection = computerPlay();
-    console.log(`Computer selection is ${computerSelection}`);
-    const playerSelection = prompt('What is your bet: ');
-    console.log(`Player selection is ${playerSelection}`);
+    let playerSelection = prompt('What is your bet: ');
+    while(!bet.includes(playerSelection)){
+        alert("Invalid input, please enter either rock, paper or scissors");
+        playerSelection = prompt('What is your bet: ');
+    }
+    console.log(`Round ${i}
+                Computer selection is ${computerSelection}
+                Player selection is ${playerSelection}`);
 
     console.log(playRound(playerSelection, computerSelection));
     }
-    console.log(`Player score is: ${playerScore}`);
-    console.log(`Computer score is: ${computerScore}`);
+    console.log(`Final score
+                Player score is: ${playerScore}
+                Computer score is: ${computerScore}`);
 
     if(playerScore > computerScore){
         console.log("Player wins!");
